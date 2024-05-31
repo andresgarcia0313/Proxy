@@ -1,0 +1,4 @@
+data/database.sqlite
+data/keys.json
+data/logs/fallback_access.log
+data/logs/fallback_error.log

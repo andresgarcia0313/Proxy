@@ -1,0 +1,22 @@
+name: proxy
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    hostname: proxy
+    container_name: proxy
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - net_proxy
+networks:
+  net_proxy: # docker network create net_proxy
+    external: true
+#Para el primer inicio:
+#Email:    admin@example.com
+#Password: changeme
